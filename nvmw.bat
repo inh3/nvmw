@@ -168,7 +168,7 @@ if not %NVMW_CURRENT:~0,1% == v (
   set NVMW_CURRENT=v%1
 )
 echo Now using Node %NVMW_CURRENT%
-set "PATH=%NVMW_HOME%;%NVMW_HOME%\%NVMW_CURRENT%;%PATH_ORG%"
+set "PATH=%NVMW_HOME%%NVMW_CURRENT%;%PATH_ORG%"
 exit /b 0
 
 ::===========================================================

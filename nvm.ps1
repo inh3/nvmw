@@ -7,7 +7,9 @@ Invoke-Command -ScriptBlock { cmd /c "nvmw.bat $args && set > `"$tempFile`"" } -
 
 # find path variable and set path
 Get-Content $tempFile | Foreach-Object {
-    If(($_ -match "^(PATH)=(.*)$") -or ($_ -match "^(NVMW_CURRENT)=(.*)$"))
+    If(($_ -match "^(PATH)=(.*)$") -or 
+       ($_ -match "^(NVMW_CURRENT)=(.*)$") -or
+       ($_ -match "^(PATH_ORG)=(.*)$"))
     {
         Set-Content "env:\$($matches[1])" $matches[2]
     }
