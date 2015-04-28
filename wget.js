@@ -24,6 +24,9 @@ function wget(uri, callback) {
         }
         var contentLength = parseInt(res.headers['content-length'], 10);
         if (isNaN(contentLength)) {
+            contentLength = parseInt(res.headers['Content-Length'], 10);
+        }
+        if (isNaN(contentLength)) {
             console.log('Can\'t get \'content-length\'');
             callback(null);
             return;
